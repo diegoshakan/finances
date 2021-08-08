@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :payment do
-    title { "MyString" }
-    description { "MyText" }
+    title { FFaker::Music.album }
+    description { FFaker::Movie.title }
     value { "9.99" }
     date { "2021-08-08" }
   end
