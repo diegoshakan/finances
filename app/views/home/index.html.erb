@@ -1,8 +1,18 @@
-<h3> Seja bem-vindo(a) <%= current_user.first_name %> ao nosso gerenciador de finanças </h3>
-<div> <p> Entradas: R$ <%= current_user.receivable_balance %> </p> </div>
-<div> <p> Saídas: R$ <%= current_user.payment_balance %> </p> </div>
-<div> <p> Total: R$ <%= current_user.total_balance %> </p> </div>
+<div class="container">
+  <h3> Seja bem-vindo(a) <%= current_user.first_name %> ao nosso gerenciador de finanças </h3>
+  <div class="row">
+    <div class="col">
+      Entradas: R$ <%= current_user.receivable_balance %>
+    </div>
+    <div class="col">
+      Saídas: R$ <%= current_user.payment_balance %>
+    </div>
+    <div class="col">
+      Total: R$ <%= current_user.total_balance %>
+    </div>
+  </div>
 
-<div> <%= link_to "Recebíveis", receivables_path %> </div>
-<div> <%= link_to "Pagáveis", payments_path %> </div>
-<div> <%= link_to "Sair", destroy_user_session_path, method: :delete %> </div>
+  <div> <%= link_to "Recebíveis", receivables_path %> </div>
+  <div> <%= link_to "Pagáveis", payments_path %> </div>
+  <div> <%= link_to "Sair", destroy_user_session_path, method: :delete %> </div>
+</div>
