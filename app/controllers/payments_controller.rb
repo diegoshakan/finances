@@ -7,8 +7,7 @@ class PaymentsController < ApplicationController
   end
 
   # GET /payments/1 or /payments/1.json
-  def show
-  end
+  def show; end
 
   # GET /payments/new
   def new
@@ -16,8 +15,7 @@ class PaymentsController < ApplicationController
   end
 
   # GET /payments/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /payments or /payments.json
   def create
@@ -57,17 +55,16 @@ class PaymentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_payment
-      @payment = Payment.where(user: current_user).find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def payment_params
-      params.require(:payment).permit(:title, :description, :value, :date)
-    end
+  def set_payment
+    @payment = Payment.where(user: current_user).find(params[:id])
+  end
 
-    def user_payment_params
-      payment_params.merge({ user: current_user })
-    end
+  def payment_params
+    params.require(:payment).permit(:title, :description, :value, :date)
+  end
+
+  def user_payment_params
+    payment_params.merge({ user: current_user })
+  end
 end
