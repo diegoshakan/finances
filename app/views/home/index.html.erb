@@ -1,4 +1,7 @@
-<h3> Seja bem-vindo ao nosso gerenciador de finanças </h3>
+<h3> Seja bem-vindo(a) <%= current_user.first_name %> ao nosso gerenciador de finanças </h3>
+<div> <p> Entradas: R$ <%= current_user.receivable_balance %> </p> </div>
+<div> <p> Saídas: R$ <%= current_user.payment_balance %> </p> </div>
+<div> <p> Total: R$ <%= current_user.total_balance %> </p> </div>
 
 <div> <%= link_to "Recebíveis", receivables_path %> </div>
 <div> <%= link_to "Pagáveis", payments_path %> </div>

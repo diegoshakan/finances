@@ -1,16 +1,15 @@
 class Balance
   def initialize(options = {})
     @options = options
-    @payments = options[:payments]
-    @receivables = options[:receivables]
+    @user = options[:user]
   end
 
   def payment_balance
-    @payments.sum(&:value)
+    @user.payments.sum(&:value)
   end
 
   def receivable_balance
-    @receivables.sum(&:value)
+    @user.receivables.sum(&:value)
   end
 
   def total_balance
