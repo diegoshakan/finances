@@ -3,7 +3,7 @@ class ReceivablesController < ApplicationController
 
   # GET /receivables or /receivables.json
   def index
-    @receivables = Receivable.all
+    @receivables = Receivable.where(user: current_user)
   end
 
   # GET /receivables/1 or /receivables/1.json
@@ -21,7 +21,7 @@ class ReceivablesController < ApplicationController
 
   # POST /receivables or /receivables.json
   def create
-    @receivable = Receivable.new(receivable_params)
+    @receivable = Receivable.new(user_receivable_params)
 
     respond_to do |format|
       if @receivable.save
@@ -37,7 +37,7 @@ class ReceivablesController < ApplicationController
   # PATCH/PUT /receivables/1 or /receivables/1.json
   def update
     respond_to do |format|
-      if @receivable.update(receivable_params)
+      if @receivable.update(user_receivable_params)
         format.html { redirect_to @receivable, notice: "Receivable was successfully updated." }
         format.json { render :show, status: :ok, location: @receivable }
       else
@@ -59,11 +59,15 @@ class ReceivablesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_receivable
-      @receivable = Receivable.find(params[:id])
+      @receivable = Receivable.where(user: current_user).find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def receivable_params
       params.require(:receivable).permit(:title, :description, :value, :date)
+    end
+
+    def user_receivable_params
+      receivable_params.merge({ user: current_user })
     end
 end
