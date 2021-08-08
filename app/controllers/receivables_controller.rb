@@ -7,8 +7,7 @@ class ReceivablesController < ApplicationController
   end
 
   # GET /receivables/1 or /receivables/1.json
-  def show
-  end
+  def show; end
 
   # GET /receivables/new
   def new
@@ -16,8 +15,7 @@ class ReceivablesController < ApplicationController
   end
 
   # GET /receivables/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /receivables or /receivables.json
   def create
@@ -57,17 +55,18 @@ class ReceivablesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_receivable
-      @receivable = Receivable.where(user: current_user).find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def receivable_params
-      params.require(:receivable).permit(:title, :description, :value, :date)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_receivable
+    @receivable = Receivable.where(user: current_user).find(params[:id])
+  end
 
-    def user_receivable_params
-      receivable_params.merge({ user: current_user })
-    end
+  # Only allow a list of trusted parameters through.
+  def receivable_params
+    params.require(:receivable).permit(:title, :description, :value, :date)
+  end
+
+  def user_receivable_params
+    receivable_params.merge({ user: current_user })
+  end
 end
