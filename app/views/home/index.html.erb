@@ -1,18 +1,46 @@
 <div class="container">
-  <h3> Seja bem-vindo(a) <%= current_user.first_name %> ao nosso gerenciador de finanças </h3>
   <div class="row">
-    <div class="col">
-      Entradas: R$ <%= current_user.receivable_balance %>
-    </div>
-    <div class="col">
-      Saídas: R$ <%= current_user.payment_balance %>
-    </div>
-    <div class="col">
-      Total: R$ <%= current_user.total_balance %>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+      <h3> Seja bem-vindo(a) <%= current_user.first_name %> ao nosso gerenciador de finanças </h3>
     </div>
   </div>
-
-  <div> <%= link_to "Recebíveis", receivables_path %> </div>
-  <div> <%= link_to "Pagáveis", payments_path %> </div>
-  <div> <%= link_to "Sair", destroy_user_session_path, method: :delete %> </div>
+  <div class="row">
+    <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+      <div class="card text-center border-secondary mb-3" style="width: 18rem; height: 12rem;">
+        <div class="card-body">
+          <h5 class="card-header">Total de Entradas</h5>
+          <p class="card-text">
+            O objetivo é manter sempre entrando dinheiro, e investindo-o.
+          </p>
+          <h4> R$ <%= current_user.receivable_balance %> </h4>
+          <%= link_to 'Entradas', receivables_path %>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+      <div class="card text-center border-secondary mb-3" style="width: 18rem; height: 12rem;">
+        <div class="card-body">
+          <h5 class="card-header">Total de Saídas</h5>
+          <p class="card-text">
+            O objetivo é manter os gastos em rédes curtas. Assim você tem o domínio sobre o dinheiro
+            e não inverso.
+          </p>
+          <h4> R$ <%= current_user.payment_balance %> </h4>
+          <%= link_to 'Saídas', payments_path %>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+      <div class="card text-center border-secondary mb-3" style="width: 18rem; height: 12rem;">
+        <div class="card-body">
+          <h5 class="card-header">Balanço Total</h5>
+          <p class="card-text">
+            Mantendo sempre este valor verde, e acima do piso seguro, você estará indo no caminho
+            certo.
+          </p>
+          <h4> R$ <%= current_user.total_balance %> </h4>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
