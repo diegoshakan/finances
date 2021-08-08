@@ -3,7 +3,7 @@ class PaymentsController < ApplicationController
 
   # GET /payments or /payments.json
   def index
-    @payments = Payment.all
+    @payments = Payment.where(user: current_user)
   end
 
   # GET /payments/1 or /payments/1.json
@@ -21,7 +21,7 @@ class PaymentsController < ApplicationController
 
   # POST /payments or /payments.json
   def create
-    @payment = Payment.new(payment_params)
+    @payment = Payment.new(user_payment_params)
 
     respond_to do |format|
       if @payment.save
@@ -37,7 +37,7 @@ class PaymentsController < ApplicationController
   # PATCH/PUT /payments/1 or /payments/1.json
   def update
     respond_to do |format|
-      if @payment.update(payment_params)
+      if @payment.update(user_payment_params)
         format.html { redirect_to @payment, notice: "Payment was successfully updated." }
         format.json { render :show, status: :ok, location: @payment }
       else
@@ -65,5 +65,9 @@ class PaymentsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def payment_params
       params.require(:payment).permit(:title, :description, :value, :date)
+    end
+
+    def user_payment_params
+      payment_params.merge({ user: current_user })
     end
 end
