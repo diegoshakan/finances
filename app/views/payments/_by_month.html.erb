@@ -1,20 +1,13 @@
-<% @payments.each do |payment| %>
-  <p> <%= payment.first.strftime("%B %Y") %> </p>
-  <% payment.last.each do |body| %>
+<% @payments.reverse_each do |payment| %>
+  <h4> <%= payment.first.strftime("%B %Y") %> </h4>
     <table class="table">
-      <thead>
-      <tr> Data </tr>
-      <tr>
-        <th>Title</th>
-        <th>Value</th>
-        <th>Ações</th>
-      </tr>
-      </thead>
+
       <tbody>
+      <% payment.last.each do |body| %>
         <tr>
-          <%= body.date.strftime("%d/%m") %>
-        </tr>
-        <tr>
+          <td>
+            <%= body.date.strftime("%d/%m") %>
+          </td>
           <td>
             <%= body.title %>
           </td>
@@ -26,14 +19,13 @@
             <%= link_to 'Edit', edit_payment_path(body) %>
             <%= link_to 'Destroy', body, method: :delete, data: { confirm: 'Are you sure?' } %>
           </td>
-          </td>
         </tr>
+      <% end %>
       </tbody>
 <!--      <tfoot>-->
 <!--      ...-->
 <!--      </tfoot>-->
     </table>
-  <% end %>
 <% end %>
 
 
