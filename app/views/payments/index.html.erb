@@ -1,8 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Payments - R$ <%= current_user.payment_balance %></h1>
+<div class="container">
+<div class="row">
+  <div class="col">
+    <h3>Payments - R$ <%= current_user.payment_balance %></h3>
+    <%= link_to 'New Payment', new_payment_path, class: "btn btn-primary btn-sm text-white" %>
+    <%= link_to 'Voltar', root_path, class: "btn btn-primary btn-sm text-white" %>
+  </div>
+</div>
+<hr />
 
 <%= render "payments/by_month" %>
 
-<div> <%= link_to 'New Payment', new_payment_path %> </div>
-<div> <%= link_to 'Voltar', root_path %> </div>
+</div>
