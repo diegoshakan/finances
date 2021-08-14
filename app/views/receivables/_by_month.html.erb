@@ -1,0 +1,37 @@
+<% @receivables.reverse_each do |receivable| %>
+  <h4> <%= receivable.first.strftime("%B %Y") %> </h4>
+  <table class="table">
+    <tbody>
+    <% receivable.last.each do |body| %>
+      <tr>
+        <td>
+          <%= body.date.strftime("%d/%m") %>
+        </td>
+        <td>
+          <%= body.title %>
+        </td>
+        <td>
+          <%= body.value %>
+        </td>
+        <td>
+          <%= link_to 'Show', body %>
+          <%= link_to 'Edit', edit_receivable_path(body) %>
+          <%= link_to 'Destroy', body, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="1">
+      </td>
+      <td>
+        <h6>Total</h6>
+      </td>
+      <td colspan="3">
+        <h6> <%= receivable.last.sum(&:value) %> </h6>
+      </td>
+    </tr>
+    </tfoot>
+  </table>
+<% end %>

@@ -3,7 +3,7 @@ class ReceivablesController < ApplicationController
 
   # GET /receivables or /receivables.json
   def index
-    @receivables = Receivable.where(user: current_user)
+    @receivables = Receivable.where(user: current_user).group_by { |m| m.date.beginning_of_month }
   end
 
   # GET /receivables/1 or /receivables/1.json

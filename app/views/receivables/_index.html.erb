@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Receivables - R$ <%= current_user.receivable_balance %></h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Value</th>
+    <th>Date</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @receivables.each do |receivable| %>
+    <tr>
+      <td><%= receivable.title %></td>
+      <td><%= receivable.description %></td>
+      <td><%= receivable.value %></td>
+      <td><%= receivable.date %></td>
+      <td><%= link_to 'Show', receivable %></td>
+      <td><%= link_to 'Edit', edit_receivable_path(receivable) %></td>
+      <td><%= link_to 'Destroy', receivable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div> <%= link_to 'New Receivable', new_receivable_path %> </div>
+<div> <%= link_to 'Voltar', root_path %> </div>
