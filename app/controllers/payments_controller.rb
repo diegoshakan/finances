@@ -3,7 +3,7 @@ class PaymentsController < ApplicationController
 
   # GET /payments or /payments.json
   def index
-    @payments = Payment.where(user: current_user)
+    @payments = Payment.where(user: current_user).group_by { |m| m.date.beginning_of_month }
   end
 
   # GET /payments/1 or /payments/1.json
