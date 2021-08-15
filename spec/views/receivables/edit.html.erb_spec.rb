@@ -5,7 +5,8 @@ RSpec.describe "receivables/edit", type: :view do
     @receivable = assign(:receivable, Receivable.create!(
       title: "MyString",
       description: "MyText",
-      value: "9.99"
+      value: "9.99",
+      user: FactoryBot.create(:user)
     ))
   end
 

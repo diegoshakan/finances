@@ -5,7 +5,8 @@ RSpec.describe "payments/show", type: :view do
     @payment = assign(:payment, Payment.create!(
       title: "Title",
       description: "MyText",
-      value: "9.99"
+      value: "9.99",
+      user: FactoryBot.create(:user)
     ))
   end
 

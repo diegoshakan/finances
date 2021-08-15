@@ -6,12 +6,14 @@ RSpec.describe "payments/index", type: :view do
       Payment.create!(
         title: "Title",
         description: "MyText",
-        value: "9.99"
+        value: "9.99",
+        user: FactoryBot.create(:user)
       ),
       Payment.create!(
         title: "Title",
         description: "MyText",
-        value: "9.99"
+        value: "9.99",
+        user: FactoryBot.create(:user)
       )
     ])
   end
