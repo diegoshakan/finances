@@ -6,12 +6,14 @@ RSpec.describe "receivables/index", type: :view do
       Receivable.create!(
         title: "Title",
         description: "MyText",
-        value: "9.99"
+        value: "9.99",
+        user: FactoryBot.create(:user)
       ),
       Receivable.create!(
         title: "Title",
         description: "MyText",
-        value: "9.99"
+        value: "9.99",
+        user: FactoryBot.create(:user)
       )
     ])
   end

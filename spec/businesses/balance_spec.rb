@@ -9,7 +9,7 @@ RSpec.describe "Balance" do
 
   context "payments" do
     it 'total' do
-      result = Balance.new({ payments: @payments }).payment_balance
+      result = Balance.new({ user: @user }).payment_balance
 
       expect(result).to eq(300)
     end
@@ -17,7 +17,7 @@ RSpec.describe "Balance" do
 
   context "receivables" do
     it 'total' do
-      result = Balance.new({ receivables: @receivables }).receivable_balance
+      result = Balance.new({ user: @user }).receivable_balance
 
       expect(result).to eq(500)
     end
@@ -25,7 +25,7 @@ RSpec.describe "Balance" do
 
   context "total" do
     it 'receivables - payments' do
-      result = Balance.new({ payments: @payments, receivables: @receivables }).total_balance
+      result = Balance.new({ user: @user }).total_balance
 
       expect(result).to eq(200)
     end
