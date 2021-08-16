@@ -1,24 +1,41 @@
-# README
+# README - Gerenciador de Finanças
+![GitHub top language](https://img.shields.io/github/languages/top/diegoshakan/catarsinho)
+![GitHub language count](https://img.shields.io/github/languages/count/diegoshakan/catarsinho)
+![GitHub repo size](https://img.shields.io/github/repo-size/diegoshakan/catarsinho)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Click here to visit: [take-the-control](https://take-the-control.herokuapp.com/)
+<p>This Web App is a little app based on kakeibo philosophy.</p>
 
-Things you may want to cover:
 
-* Ruby version
+## Pre-requisites
 
-* System dependencies
+* Ruby '3.0.1'
+* Rails 6.0.3
+* Bundler 2.1.4
+* Postgresql 10.10
 
-* Configuration
+## Setup Project
 
-* Database creation
+* $ git clone https://github.com/diegoshakan/finances.git
+* $ cd finances
+* $ rails db:create db:migrate
+* $ bundle install
+* if your system ask for Yarn, please type $ yarn install or just $ yarn
+* After all, run $ rails s -b 0.0.0.0
 
-* Database initialization
+## Web App
+* You can register an user and submit your receivables and payments;
+* You can see all information about your finances, include total balance;
+* All entries/exits are detailed by months;
+* More features are builds, for further information and if you want help, access [issues](https://github.com/diegoshakan/finances/issues).
 
-* How to run the test suite
+more about app informations:
+I used bootstrap by CND setting to make style.
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Tests and Development librarys (gems)
+Main gems
+* Simple-form
+* Devise
+* Rspec-rails
+* Factory_bot_rails
+* FFaker
