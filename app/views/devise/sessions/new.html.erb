@@ -48,7 +48,7 @@
               <div class="mb-3 mt-3">
                 <%= image_tag("logo_login.png", width: '82', height: '67') %>
               </div>
-              <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+              <h1 class="h3 mb-3 fw-normal">Faça seu login</h1>
 
               <div class="form-floating mb-3">
                 <%= f.input :email,
@@ -66,12 +66,15 @@
                             input_html: { autocomplete: "current-password", class: "form-control", id: "floatingPassword", } %>
               </div>
 
-              <div class="checkbox mb-3">
+              <div class="checkbox">
                 <label>
                   <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
                 </label>
               </div>
-              <%= f.button :submit, "Log in", class: "btn btn-lg btn-primary" %>
+              <div>
+                <p> <%= render "devise/shared/links" %> </p>
+              </div>
+              <%= f.button :submit, "Entrar", class: "btn btn-lg btn-primary" %>
               <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
             </form>
           <% end %>
