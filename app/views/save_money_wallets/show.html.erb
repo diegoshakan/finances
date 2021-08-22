@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @save_money_wallet.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @save_money_wallet.description %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @save_money_wallet.value %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @save_money_wallet.date %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @save_money_wallet.user_id %>
+</p>
+
+<p>
+  <strong>Save money:</strong>
+  <%= @save_money_wallet.save_money_id %>
+</p>
+
+<%= link_to 'Edit', edit_save_money_wallet_path(@save_money_wallet) %> |
+<%= link_to 'Back', save_money_wallets_path %>

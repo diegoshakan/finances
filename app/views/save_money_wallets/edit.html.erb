@@ -1,0 +1,10 @@
+<h1>Editar <%= @save_money_wallet.title %> </h1>
+
+<%= simple_form_for([@save_money, @save_money_wallet]) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :value %>
+  <%= f.input :date, as: :date %>
+  <%= f.button :submit %>
+<% end %>
+<%= link_to "Voltar", save_money_path(@save_money) %>
