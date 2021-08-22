@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :payment do
     title { FFaker::Music.album }
     description { FFaker::Movie.title }
-    value { "9.99" }
+    value { rand(100..2000).to_f }
     date { "2021-08-08" }
   end
 end

@@ -9,8 +9,8 @@
 user1 = FactoryBot.create(:user, email: 'diego@example.com')
 user2 = FactoryBot.create(:user, email: 'aimee@example.com')
 
-FactoryBot.create_list(:receivable, 2, value: 250.00, user: user1)
-FactoryBot.create_list(:payment, 2, value: 160.00, user: user1)
+FactoryBot.create_list(:receivable, 2, user: user1)
+FactoryBot.create_list(:payment, 2, user: user1)
 
-FactoryBot.create_list(:receivable, 2, value: 350.00, user: user2)
-FactoryBot.create_list(:payment, 2, value: 130.00, user: user2)
+FactoryBot.create_list(:receivable, 2, user: user2)
+FactoryBot.create_list(:payment, 2, user: user2)
