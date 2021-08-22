@@ -10,10 +10,11 @@
   <%= @save_money.description %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @save_money.user_id %>
-</p>
+<h2>Comentários: </h2>
+<%= render "save_money_wallets/wallets" %>
+
+<h2> Comente: </h2>
+<%= render "save_money_wallets/form" %>
 
 <%= link_to 'Edit', edit_save_money_path(@save_money) %> |
 <%= link_to 'Back', save_moneys_path %>

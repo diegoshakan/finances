@@ -5,7 +5,7 @@ class SaveMoneysController < ApplicationController
 
   # GET /save_moneys or /save_moneys.json
   def index
-    @save_moneys = SaveMoney.where(user: current_user).group_by { |m| m.date.beginning_of_month }
+    @save_moneys = SaveMoney.where(user: current_user)
   end
 
   # GET /save_moneys/1 or /save_moneys/1.json
@@ -65,7 +65,8 @@ class SaveMoneysController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def save_money_params
-    params.require(:save_money).permit(:title, :description)
+    params.require(:save_money).permit(:title, :description,
+                                       save_money_wallets_attributes: [:title, :description, :value, :date])
   end
 
   def user_save_money_params
