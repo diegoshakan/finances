@@ -35,7 +35,7 @@ class ReceivablesController < ApplicationController
   # PATCH/PUT /receivables/1 or /receivables/1.json
   def update
     respond_to do |format|
-      if @receivable.update(user_receivable_params)
+      if @receivable.update(receivable_params)
         format.html { redirect_to @receivable, notice: "Receivable was successfully updated." }
         format.json { render :show, status: :ok, location: @receivable }
       else

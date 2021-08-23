@@ -12,7 +12,7 @@
           <p class="card-text">
             O objetivo é manter sempre entrando dinheiro, e investindo-o.
           </p>
-          <h4> R$ <%= current_user.receivable_balance %> </h4>
+          <h4> <%= number_to_currency(current_user.receivable_balance, unit: "R$") %> </h4>
           <%= link_to 'Entradas', receivables_path %>
         </div>
       </div>
@@ -25,7 +25,7 @@
             O objetivo é manter os gastos em rédes curtas. Assim você tem o domínio sobre o dinheiro
             e não inverso.
           </p>
-          <h4> R$ <%= current_user.payment_balance %> </h4>
+          <h4> <%= number_to_currency(current_user.payment_balance, unit: "R$") %> </h4>
           <%= link_to 'Saídas', payments_path %>
         </div>
       </div>
@@ -38,7 +38,7 @@
             Mantendo sempre este valor verde, e acima do piso seguro, você estará indo no caminho
             certo.
           </p>
-          <h4> R$ <%= current_user.total_balance %> </h4>
+          <h4> <%= number_to_currency(current_user.total_balance, unit: "R$") %> </h4>
         </div>
       </div>
     </div>

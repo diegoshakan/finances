@@ -11,7 +11,7 @@
               <%= body.title %>
             </td>
             <td>
-              <%= body.value %>
+              <%= number_to_currency(body.value, unit: "R$")  %>
             </td>
             <td>
               <%= link_to 'Show', body %>
@@ -29,7 +29,7 @@
           <h6>Total</h6>
         </td>
         <td colspan="3">
-          <h6> <%= payment.last.sum(&:value) %> </h6>
+          <h6> <%= number_to_currency(payment.last.sum(&:value), unit: "R$") %> </h6>
         </td>
       </tr>
       </tfoot>

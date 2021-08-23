@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_08_142628) do
+ActiveRecord::Schema.define(version: 2021_08_21_194010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,26 @@ ActiveRecord::Schema.define(version: 2021_08_08_142628) do
     t.index ["user_id"], name: "index_receivables_on_user_id"
   end
 
+  create_table "save_money_wallets", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.decimal "value"
+    t.date "date"
+    t.bigint "save_money_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["save_money_id"], name: "index_save_money_wallets_on_save_money_id"
+  end
+
+  create_table "save_moneys", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_save_moneys_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -53,4 +73,6 @@ ActiveRecord::Schema.define(version: 2021_08_08_142628) do
 
   add_foreign_key "payments", "users"
   add_foreign_key "receivables", "users"
+  add_foreign_key "save_money_wallets", "save_moneys"
+  add_foreign_key "save_moneys", "users"
 end

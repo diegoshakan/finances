@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Save Money Wallets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Value</th>
+      <th>Date</th>
+      <th>User</th>
+      <th>Save money</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @save_money_wallets.each do |save_money_wallet| %>
+      <tr>
+        <td><%= save_money_wallet.title %></td>
+        <td><%= save_money_wallet.description %></td>
+        <td><%= save_money_wallet.value %></td>
+        <td><%= save_money_wallet.date %></td>
+        <td><%= save_money_wallet.user_id %></td>
+        <td><%= save_money_wallet.save_money_id %></td>
+        <td><%= link_to 'Show', save_money_wallet %></td>
+        <td><%= link_to 'Edit', edit_save_money_wallet_path(save_money_wallet) %></td>
+        <td><%= link_to 'Destroy', save_money_wallet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Save Money Wallet', new_save_money_wallet_path %>

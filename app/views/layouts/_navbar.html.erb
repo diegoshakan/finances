@@ -16,6 +16,9 @@
           <%= link_to 'Pagáveis', payments_path, class: 'nav-link' %>
         </li>
         <li class="nav-item">
+          <%= link_to 'Salvar Dinheiro', save_moneys_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
           <% if user_signed_in? %>
             <%= button_to "Sair", destroy_user_session_path, method: :delete, class: 'nav-link btn btn-light' %>
           <% end %>

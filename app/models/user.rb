@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :receivables
   has_many :payments
+  has_many :save_moneys
+  has_many :wallets, class_name: 'SaveMoneyWallet', through: :save_moneys
 
   def receivable_balance
     ::Balance.new({ user: self }).receivable_balance
