@@ -1,8 +1,8 @@
-<% @receivables.reverse_each do |receivable| %>
-  <h4> <%= receivable.first.strftime("%B %Y") %> </h4>
+<% @receivables.reverse_each do |date, receivable| %>
+  <h4> <%= date.strftime("%B %Y") %> </h4>
   <table class="table">
     <tbody>
-    <% receivable.last.each do |body| %>
+    <% receivable.each do |body| %>
       <tr>
         <td>
           <%= body.date.strftime("%d/%m") %>
@@ -29,7 +29,7 @@
         <h6>Total</h6>
       </td>
       <td colspan="3">
-        <h6> <%= number_to_currency(receivable.last.sum(&:value), unit: "R$") %> </h6>
+        <h6> <%= number_to_currency(receivable.sum(&:value), unit: "R$") %> </h6>
       </td>
     </tr>
     </tfoot>
