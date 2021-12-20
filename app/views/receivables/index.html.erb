@@ -3,7 +3,7 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h3>Receivables - R$ <%= current_user.receivable_balance %></h3>
+      <h3> Mês Atual - <%= number_to_currency(current_user.sum_last_month_receivables, unit: "R$") %> </h3>
       <%= link_to 'New Receivable', new_receivable_path, class: "btn btn-primary btn-sm text-white" %>
       <%= link_to 'Voltar', root_path, class: "btn btn-primary btn-sm text-white" %>
     </div>
