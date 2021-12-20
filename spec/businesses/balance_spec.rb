@@ -13,6 +13,12 @@ RSpec.describe "Balance" do
 
       expect(result).to eq(300)
     end
+
+    it 'sum last month' do
+      result = Balance.new({ user: @user }).sum_last_month_payments
+
+      expect(result).to eq(300.0)
+    end
   end
 
   context "receivables" do
@@ -20,6 +26,12 @@ RSpec.describe "Balance" do
       result = Balance.new({ user: @user }).receivable_balance
 
       expect(result).to eq(500)
+    end
+
+    it 'sum last month' do
+      result = Balance.new({ user: @user }).sum_last_month_receivables
+
+      expect(result).to eq(500.0)
     end
   end
 
