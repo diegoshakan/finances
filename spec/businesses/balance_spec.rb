@@ -15,9 +15,10 @@ RSpec.describe "Balance" do
     end
 
     it 'sum last month' do
+      FactoryBot.create(:payment, value: 200.00, user: @user, date: Time.current)
       result = Balance.new({ user: @user }).sum_last_month_payments
 
-      expect(result).to eq(300.0)
+      expect(result).to eq(200.0)
     end
   end
 
