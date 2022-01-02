@@ -13,6 +13,13 @@ RSpec.describe "Balance" do
 
       expect(result).to eq(300)
     end
+
+    it 'total month' do
+      FactoryBot.create(:payment, value: 150.00, date: Time.current, user: @user)
+      result = ::Balance.new({ user: @user }).payment_last_month
+
+      expect(result).to eq(150.00)
+    end
   end
 
   context "receivables" do
@@ -20,6 +27,13 @@ RSpec.describe "Balance" do
       result = Balance.new({ user: @user }).receivable_balance
 
       expect(result).to eq(500)
+    end
+
+    it 'total month' do
+      FactoryBot.create(:receivable, value: 250.00, date: Time.current, user: @user)
+      result = ::Balance.new({ user: @user }).receivable_last_month
+
+      expect(result).to eq(250.00)
     end
   end
 
