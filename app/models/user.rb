@@ -13,11 +13,23 @@ class User < ApplicationRecord
     ::Balance.new({ user: self }).receivable_balance
   end
 
+  def receivable_last_month
+    ::Balance.new({ user: self }).receivable_last_month
+  end
+
   def payment_balance
     ::Balance.new({ user: self }).payment_balance
   end
 
+  def payment_last_month
+    ::Balance.new({ user: self }).payment_last_month
+  end
+
   def total_balance
     ::Balance.new({ user: self }).total_balance
+  end
+
+  def total_balance_by_month
+    ::Balance.new({ user: self }).total_balance_by_month
   end
 end
