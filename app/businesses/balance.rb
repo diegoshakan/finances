@@ -9,8 +9,9 @@ class Balance
   end
 
   def payment_last_month
-    last_payment = @user.payments.group(:date).sum(:value)
-    last_payment.values.last.to_f
+    last_payment = @user.payments.group_by { |m| m.date.beginning_of_month }
+    sum_total = last_payment.values.last.sum(&:value)
+    last_payment.keys.include?(Time.current.beginning_of_month) ? sum_total : 0.00
   end
 
   def receivable_balance
@@ -18,8 +19,9 @@ class Balance
   end
 
   def receivable_last_month
-    last_receivable = @user.receivables.group(:date).sum(:value)
-    last_receivable.values.last.to_f
+    last_receivable = @user.receivables.group_by { |m| m.date.beginning_of_month }
+    sum_total = last_receivable.values.last.sum(&:value)
+    last_receivable.keys.include?(Time.current.beginning_of_month) ? sum_total : 0.00
   end
 
   def total_balance
