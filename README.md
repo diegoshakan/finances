@@ -4,7 +4,7 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/diegoshakan/catarsinho)
 
 Click here to visit: [take-the-control](https://take-the-control.herokuapp.com/)
-<p>This Web App is a little app based on kakeibo philosophy.</p>
+<p>This Web App is an app based on kakeibo philosophy.</p>
 
 
 ## Pre-requisites
