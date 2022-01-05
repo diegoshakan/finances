@@ -20,6 +20,13 @@ RSpec.describe "Balance" do
 
       expect(result).to eq(150.00)
     end
+
+    it 'total month without exit' do
+      FactoryBot.create(:payment, value: 150.00, date: Time.current - 1.month, user: @user)
+      result = ::Balance.new({ user: @user }).payment_last_month
+
+      expect(result).to eq(0.00)
+    end
   end
 
   context "receivables" do
@@ -35,9 +42,16 @@ RSpec.describe "Balance" do
 
       expect(result).to eq(250.00)
     end
+
+    it 'total month without entry' do
+      FactoryBot.create(:receivable, value: 150.00, date: Time.current - 1.month, user: @user)
+      result = ::Balance.new({ user: @user }).receivable_last_month
+
+      expect(result).to eq(0.00)
+    end
   end
 
-  context "total" do
+  context "balance" do
     it 'receivables - payments' do
       result = Balance.new({ user: @user }).total_balance
 
