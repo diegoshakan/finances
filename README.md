@@ -18,7 +18,7 @@ Click here to visit: [take-the-control](https://take-the-control.herokuapp.com/)
 
 * $ git clone https://github.com/diegoshakan/finances.git
 * $ cd finances
-* $ rails db:create db:migrate
+* $ rails db:create db:migrate db:seed
 * $ bundle install
 * if your system ask for Yarn, please type $ yarn install or just $ yarn
 * After all, run $ rails s -b 0.0.0.0
