@@ -1,8 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Carteira Financeira</h1>
+<div class="row">
+  <div class="col">
+    <h1>Carteira Financeira</h1>
+    <%= link_to 'Nova Carteira', new_save_money_path, class: "btn btn-success btn-sm text-light mb-2 float-right" %>
+    <%= link_to 'Voltar', root_path, class: "btn btn-secondary btn-sm text-light mb-2 float-right" %>
+  </div>
+</div>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Nome</th>
@@ -14,7 +20,7 @@
   <tbody>
     <% @save_moneys.each do |save_money| %>
       <tr>
-        <td>  <h6> <%= save_money.title %> </h6> </td>
+        <td>  <h6> <%= save_money.title.capitalize %> </h6> </td>
         <td> <h6> <%= save_money.description.truncate_words(5) %> </h6> </td>
         <td><%= link_to 'Abrir', save_money, class: "btn btn-primary btn-sm text-light" %></td>
         <td><%= link_to 'Editar', edit_save_money_path(save_money), class: "btn btn-warning btn-sm text-light" %></td>
@@ -25,5 +31,3 @@
 </table>
 
 <br>
-
-<%= link_to 'Nova Carteira', new_save_money_path %>

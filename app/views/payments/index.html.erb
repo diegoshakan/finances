@@ -4,7 +4,7 @@
   <div class="col">
     <h3> Pagamentos - <%= number_to_currency(current_user.receivable_last_month, unit: "R$") %> </h3>
     <%= link_to 'New Payment', new_payment_path, class: "btn btn-primary btn-sm text-white" %>
-    <%= link_to 'Voltar', root_path, class: "btn btn-primary btn-sm text-white" %>
+    <%= link_to 'Voltar', root_path, class: "btn btn-secondary btn-sm text-white" %>
   </div>
 </div>
 <hr />
