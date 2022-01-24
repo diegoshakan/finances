@@ -1,45 +1,43 @@
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-      <h3> Seja bem-vindo(a) <%= current_user.first_name %> ao nosso gerenciador de finanças </h3>
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+    <h3> Seja bem-vindo(a) <%= current_user.first_name %> ao nosso gerenciador de finanças </h3>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+    <div class="card text-center border-secondary mb-3" style="width: 18rem; height: 12rem;">
+      <div class="card-body">
+        <h5 class="card-header">Total de Entradas  (mês)</h5>
+        <p class="card-text">
+          O objetivo é manter sempre entrando dinheiro, e investindo-o.
+        </p>
+        <h4> <%= number_to_currency(current_user.receivable_last_month, unit: "R$") %> </h4>
+        <%= link_to 'Entradas', receivables_path %>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-      <div class="card text-center border-secondary mb-3" style="width: 18rem; height: 12rem;">
-        <div class="card-body">
-          <h5 class="card-header">Total de Entradas  (mês)</h5>
-          <p class="card-text">
-            O objetivo é manter sempre entrando dinheiro, e investindo-o.
-          </p>
-          <h4> <%= number_to_currency(current_user.receivable_last_month, unit: "R$") %> </h4>
-          <%= link_to 'Entradas', receivables_path %>
-        </div>
+  <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+    <div class="card text-center border-secondary mb-3" style="width: 18rem; height: 12rem;">
+      <div class="card-body">
+        <h5 class="card-header">Total de Saídas (mês)</h5>
+        <p class="card-text">
+          O objetivo é manter os gastos em rédes curtas. Assim você tem o domínio sobre o dinheiro
+          e não inverso.
+        </p>
+        <h4> <%= number_to_currency(current_user.payment_last_month, unit: "R$") %> </h4>
+        <%= link_to 'Saídas', payments_path %>
       </div>
     </div>
-    <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-      <div class="card text-center border-secondary mb-3" style="width: 18rem; height: 12rem;">
-        <div class="card-body">
-          <h5 class="card-header">Total de Saídas (mês)</h5>
-          <p class="card-text">
-            O objetivo é manter os gastos em rédes curtas. Assim você tem o domínio sobre o dinheiro
-            e não inverso.
-          </p>
-          <h4> <%= number_to_currency(current_user.payment_last_month, unit: "R$") %> </h4>
-          <%= link_to 'Saídas', payments_path %>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-      <div class="card text-center border-secondary mb-3" style="width: 18rem; height: 12rem;">
-        <div class="card-body">
-          <h5 class="card-header">Balanço Total  (mês)</h5>
-          <p class="card-text">
-            Mantendo sempre este valor verde, e acima do piso seguro, você estará indo no caminho
-            certo.
-          </p>
-          <h4> <%= number_to_currency(current_user.total_balance_by_month, unit: "R$") %> </h4>
-        </div>
+  </div>
+  <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+    <div class="card text-center border-secondary mb-3" style="width: 18rem; height: 12rem;">
+      <div class="card-body">
+        <h5 class="card-header">Balanço Total  (mês)</h5>
+        <p class="card-text">
+          Mantendo sempre este valor verde, e acima do piso seguro, você estará indo no caminho
+          certo.
+        </p>
+        <h4> <%= number_to_currency(current_user.total_balance_by_month, unit: "R$") %> </h4>
       </div>
     </div>
   </div>
