@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Save Moneys</h1>
+<h1>Carteira Financeira</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Description</th>
+      <th>Nome</th>
+      <th>Descrição</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,11 +14,11 @@
   <tbody>
     <% @save_moneys.each do |save_money| %>
       <tr>
-        <td><%= save_money.title %></td>
-        <td><%= save_money.description %></td>
-        <td><%= link_to 'Show', save_money %></td>
-        <td><%= link_to 'Edit', edit_save_money_path(save_money) %></td>
-        <td><%= link_to 'Destroy', save_money, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>  <h6> <%= save_money.title %> </h6> </td>
+        <td> <h6> <%= save_money.description.truncate_words(5) %> </h6> </td>
+        <td><%= link_to 'Abrir', save_money, class: "btn btn-primary btn-sm text-light" %></td>
+        <td><%= link_to 'Editar', edit_save_money_path(save_money), class: "btn btn-warning btn-sm text-light" %></td>
+        <td><%= button_to 'Apagar', save_money, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm text-light" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Save Money', new_save_money_path %>
+<%= link_to 'Nova Carteira', new_save_money_path %>
