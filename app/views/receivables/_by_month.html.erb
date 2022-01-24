@@ -14,9 +14,9 @@
           <%= number_to_currency(body.value, unit: "R$")  %>
         </td>
         <td>
-          <%= link_to 'Show', body %>
-          <%= link_to 'Edit', edit_receivable_path(body) %>
-          <%= link_to 'Destroy', body, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Detalhes', body, class: "btn btn-primary btn-sm text-light" %>
+          <%= link_to 'Editar', edit_receivable_path(body), class: "btn btn-warning btn-sm text-light" %>
+          <%= link_to 'Apagar', body, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm text-light" %>
         </td>
       </tr>
     <% end %>
@@ -26,7 +26,7 @@
       <td colspan="1">
       </td>
       <td>
-        <h6>Total</h6>
+        <h6> <b> Total </b> </h6>
       </td>
       <td colspan="3">
         <h6> <%= number_to_currency(receivable.last.sum(&:value), unit: "R$") %> </h6>

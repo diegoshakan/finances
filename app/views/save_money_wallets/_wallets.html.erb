@@ -1,10 +1,29 @@
-<% @save_money.wallets.each do |wallet| %>
-  <div class="container">
-    <p> <%= wallet.title %>  </p>
-    <p> <%= wallet.description %>  </p>
-    <p> <%= number_to_currency(wallet.value, unit: 'R$') %>  </p>
-    <p> <%= wallet.date %>  </p>
-    <%= link_to "Editar", edit_save_money_save_money_wallet_path(@save_money, wallet) %>
-    <%= link_to "Deletar", [@save_money, wallet], method: :delete, data: {confirm: 'Tem certeza que deseja deletar esta carteira?'} %>
-  </div>
-<% end %>
+
+<table>
+  <thead>
+  <tr>
+    <th>Título</th>
+    <th>Descrição</th>
+    <th>Valor</th>
+    <th>Data</th>
+    <th colspan="2"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @save_money.wallets.each do |wallet| %>
+    <tr>
+      <td><%= wallet.title %></td>
+      <td><%= wallet.description %></td>
+      <td><%= number_to_currency(wallet.value, unit: 'R$') %></td>
+      <td><%= wallet.date %></td>
+      <td>
+      <%= link_to "Editar", edit_save_money_save_money_wallet_path(@save_money, wallet) %>
+      <%= link_to "Deletar", [@save_money, wallet], method: :delete, data: {confirm: 'Tem certeza que deseja deletar esta carteira?'} %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>

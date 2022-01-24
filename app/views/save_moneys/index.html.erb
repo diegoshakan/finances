@@ -20,11 +20,13 @@
   <tbody>
     <% @save_moneys.each do |save_money| %>
       <tr>
-        <td>  <h6> <%= save_money.title.capitalize %> </h6> </td>
+        <td> <h6> <%= save_money.title.capitalize %> </h6> </td>
         <td> <h6> <%= save_money.description.truncate_words(5) %> </h6> </td>
-        <td><%= link_to 'Abrir', save_money, class: "btn btn-primary btn-sm text-light" %></td>
-        <td><%= link_to 'Editar', edit_save_money_path(save_money), class: "btn btn-warning btn-sm text-light" %></td>
-        <td><%= button_to 'Apagar', save_money, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm text-light" %></td>
+        <td>
+          <%= link_to 'Abrir', save_money, class: "btn btn-primary btn-sm text-light" %>
+          <%= link_to 'Editar', edit_save_money_path(save_money), class: "btn btn-warning btn-sm text-light" %>
+          <%= link_to 'Apagar', save_money, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm text-light" %>
+        </td>
       </tr>
     <% end %>
   </tbody>

@@ -2,8 +2,8 @@
 
   <div class="row">
     <div class="col">
-      <h3> Recebimentos - <%= number_to_currency(current_user.receivable_last_month, unit: "R$") %> </h3>
-      <%= link_to 'New Receivable', new_receivable_path, class: "btn btn-primary btn-sm text-white" %>
+      <h2> Entradas - <%= number_to_currency(current_user.receivable_last_month, unit: "R$") %> </h2>
+      <%= link_to 'Nova Entrada', new_receivable_path, class: "btn btn-primary btn-sm text-white" %>
       <%= link_to 'Voltar', root_path, class: "btn btn-secondary btn-sm text-white" %>
     </div>
   </div>
