@@ -14,7 +14,7 @@
   <% @payments.each do |payment| %>
     <tr>
       <td><%= payment.title %></td>
-      <td><%= payment.description %></td>
+      <td><%= payment.description.truncate_words(5) %></td>
       <td><%= payment.value %></td>
       <td><%= payment.date %></td>
       <td><%= link_to 'Show', payment %></td>

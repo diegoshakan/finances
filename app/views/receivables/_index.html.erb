@@ -17,7 +17,7 @@
   <% @receivables.each do |receivable| %>
     <tr>
       <td><%= receivable.title %></td>
-      <td><%= receivable.description %></td>
+      <td><%= receivable.description.truncate_words(5) %></td>
       <td><%= receivable.value %></td>
       <td><%= receivable.date %></td>
       <td><%= link_to 'Show', receivable %></td>

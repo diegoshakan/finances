@@ -1,20 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @save_money.title %>
-</p>
+<div class="row">
+  <div class="col">
+    <h4> Carteira: <%= @save_money.title.capitalize %> </h4>
+    <p> <b> Descrição: </b> <%= @save_money.description %> </p>
+  </div>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @save_money.description %>
-</p>
 
-<h2>Comentários: </h2>
+<h6>Valor Guardado: </h6>
+<hr>
 <%= render "save_money_wallets/wallets" %>
 
-<h2> Comente: </h2>
+<h2> Adicionar Valor: </h2>
 <%= render "save_money_wallets/form" %>
 
-<%= link_to 'Edit', edit_save_money_path(@save_money) %> |
-<%= link_to 'Back', save_moneys_path %>
+<%= link_to 'Voltar', save_moneys_path, class: "btn btn-secondary btn-sm text-light mt-2 float-right" %>

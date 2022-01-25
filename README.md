@@ -29,6 +29,11 @@ Click here to visit: [take-the-control](https://take-the-control.herokuapp.com/)
 * All entries/exits are detailed by months;
 * More features are builds, for further information and if you want help, access [issues](https://github.com/diegoshakan/finances/issues).
 
+## Contribution
+* Fork this project;
+* Pull Request to branch "staging";
+* Because anybody will do a review code and do a PR to main branch and production;
+
 more about app informations:
 I used bootstrap by CND setting to make style.
 

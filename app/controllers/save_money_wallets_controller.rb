@@ -4,13 +4,10 @@ class SaveMoneyWalletsController < ApplicationController
   before_action :set_save_money, only: %i[create edit update destroy]
   before_action :set_save_money_wallet, only: %i[edit update destroy]
 
-  # GET /save_money_wallets/1 or /save_money_wallets/1.json
-  def show; end
+  def new
+    @save_money_wallet = @save_money.wallets.new
+  end
 
-  # GET /save_money_wallets/1/edit
-  def edit; end
-
-  # POST /save_money_wallets or /save_money_wallets.json
   def create
     @save_money_wallet = @save_money.wallets.create(save_money_wallet_params)
 
@@ -25,7 +22,6 @@ class SaveMoneyWalletsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /save_money_wallets/1 or /save_money_wallets/1.json
   def update
     respond_to do |format|
       if @save_money_wallet.update(save_money_wallet_params)
@@ -38,7 +34,6 @@ class SaveMoneyWalletsController < ApplicationController
     end
   end
 
-  # DELETE /save_money_wallets/1 or /save_money_wallets/1.json
   def destroy
     @save_money_wallet.destroy
     respond_to do |format|
@@ -49,7 +44,6 @@ class SaveMoneyWalletsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_save_money
     @save_money = SaveMoney.where(user: current_user).find(params[:save_money_id])
   end
@@ -58,7 +52,6 @@ class SaveMoneyWalletsController < ApplicationController
     @save_money_wallet = @save_money.wallets.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def save_money_wallet_params
     params.require(:save_money_wallet).permit(:title, :description, :value, :date)
   end
