@@ -1,6 +1,7 @@
-<h1>Editing Payment</h1>
+<h1>Editar Pagamento</h1>
 
 <%= render 'form', payment: @payment %>
 
-<%= link_to 'Show', @payment %> |
-<%= link_to 'Back', payments_path %>
+<%= link_to 'Ver Pagamento', @payment, class: "btn btn-primary btn-sm text-light mt-2 float-right" %>
+<%= link_to 'Pagamentos', payments_path, class: "btn btn-secondary btn-sm text-light mt-2 float-right" %>
+

@@ -1,24 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @receivable.title %>
-</p>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Título</th>
+    <th>Descrição</th>
+    <th>Valor</th>
+    <th>Data</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td> <%= @receivable.title %> </td>
+    <td> <%= @receivable.description.nil? ? @receivable.description : "---" %> </td>
+    <td> <%= @receivable.value %> </td>
+    <td> <%= @receivable.date %> </td>
+  </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Description:</strong>
-  <%= @receivable.description %>
-</p>
-
-<p>
-  <strong>Value:</strong>
-  <%= @receivable.value %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @receivable.date %>
-</p>
-
-<%= link_to 'Edit', edit_receivable_path(@receivable) %> |
-<%= link_to 'Back', receivables_path %>
+<%= link_to 'Editar', edit_receivable_path(@receivable), class: "btn btn-warning btn-sm text-light" %>
+<%= link_to 'Voltar', receivables_path, class: "btn btn-secondary btn-sm text-light" %>

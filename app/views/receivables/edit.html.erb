@@ -1,6 +1,6 @@
-<h1>Editing Receivable</h1>
+<h1>Editar Entrada</h1>
 
 <%= render 'form', receivable: @receivable %>
 
-<%= link_to 'Show', @receivable %> |
-<%= link_to 'Back', receivables_path %>
+<%= link_to 'Ver Entrada', @receivable, class: "btn btn-primary btn-sm text-light mt-2 float-right" %>
+<%= link_to 'Entradas', receivables_path, class: "btn btn-secondary btn-sm text-light mt-2 float-right" %>

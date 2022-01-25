@@ -1,24 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @payment.title %>
-</p>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Título</th>
+    <th>Descrição</th>
+    <th>Valor</th>
+    <th>Data</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td> <%= @payment.title %> </td>
+    <td> <%= @payment.description.nil? ? @payment.description : "---" %> </td>
+    <td> <%= @payment.value %> </td>
+    <td> <%= @payment.date %> </td>
+  </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Description:</strong>
-  <%= @payment.description %>
-</p>
-
-<p>
-  <strong>Value:</strong>
-  <%= @payment.value %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @payment.date %>
-</p>
-
-<%= link_to 'Edit', edit_payment_path(@payment) %> |
-<%= link_to 'Back', payments_path %>
+<%= link_to 'Editar', edit_payment_path(@payment), class: "btn btn-warning btn-sm text-light" %>
+<%= link_to 'Voltar', payments_path, class: "btn btn-secondary btn-sm text-light" %>
