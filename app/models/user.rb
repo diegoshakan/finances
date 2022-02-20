@@ -32,4 +32,8 @@ class User < ApplicationRecord
   def total_balance_by_month
     ::Balance.new({ user: self }).total_balance_by_month
   end
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end
