@@ -42,5 +42,17 @@
         </div>
       </div>
     </div>
+    <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+      <div class="card text-center border-secondary mb-3" style="width: 18rem; height: 12rem;">
+        <div class="card-body">
+          <h5 class="card-header">Minhas Carteiras</h5>
+          <p class="card-text">
+            Aqui fica meus investimentos e dinheiros guardados.
+          </p>
+          <h4> <%= number_to_currency(current_user.total_balance_wallets, unit: "R$") %> </h4>
+          <%= link_to 'Salvar Dinheiro', save_moneys_path %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

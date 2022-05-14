@@ -31,4 +31,8 @@ class Balance
   def total_balance_by_month
     receivable_last_month - payment_last_month
   end
+
+  def total_balance_wallets
+    @user.wallets.sum(&:value)
+  end
 end

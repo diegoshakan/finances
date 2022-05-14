@@ -5,6 +5,8 @@ RSpec.describe "Balance" do
     @user = FactoryBot.create(:user)
     @payments = FactoryBot.create_list(:payment, 2, value: 150.00, user: @user)
     @receivables = FactoryBot.create_list(:receivable, 2, value: 250.00, user: @user)
+    @save_money = FactoryBot.create(:save_money, user: @user)
+    @wallet = FactoryBot.create(:save_money_wallet, save_money: @save_money, value: 1000)
   end
 
   context "payments" do
@@ -56,6 +58,14 @@ RSpec.describe "Balance" do
       result = Balance.new({ user: @user }).total_balance
 
       expect(result).to eq(200)
+    end
+  end
+
+  context "save_money" do
+    it 'total' do
+      result = Balance.new({ user: @user }).total_balance_wallets
+
+      expect(result).to eq(1000)
     end
   end
 end

@@ -32,4 +32,8 @@ class User < ApplicationRecord
   def total_balance_by_month
     ::Balance.new({ user: self }).total_balance_by_month
   end
+
+  def total_balance_wallets
+    ::Balance.new({ user: self }).total_balance_wallets
+  end
 end
