@@ -1,19 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @save_money.title %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @save_money.description %>
-</p>
 
-<h2>Comentários: </h2>
+<h2>Reservas/Investimentos: </h2>
 <%= render "save_money_wallets/wallets" %>
 
-<h2> Comente: </h2>
+<h2> Nova Entrada: </h2>
 <%= render "save_money_wallets/form" %>
 
 <%= link_to 'Edit', edit_save_money_path(@save_money) %> |
