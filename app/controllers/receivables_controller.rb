@@ -3,7 +3,12 @@ class ReceivablesController < ApplicationController
 
   # GET /receivables or /receivables.json
   def index
-    @receivables = Receivable.where(user: current_user).group_by { |m| m.date.beginning_of_month }
+    receivables = Receivable.where(user: current_user)
+    @calendar, @pagy, @receivables = pagy_calendar(receivables,
+                                                year:  { size:  [1, 1, 1, 1], order: :desc },
+                                                month: { size:  [0, 12, 12, 0], order: :desc },
+                                                pagy:  { items: 10 },
+                                                )
   end
 
   # GET /receivables/1 or /receivables/1.json
@@ -68,5 +73,14 @@ class ReceivablesController < ApplicationController
 
   def user_receivable_params
     receivable_params.merge({ user: current_user })
+  end
+
+  def pagy_calendar_period(collection)
+    to_time = collection.minmax.map(&:date)
+    to_time.map { |time| time.to_time }
+  end
+
+  def pagy_calendar_filter(collection, from, to)
+    collection.where(date: from.utc..to.utc)  # storage in UTC
   end
 end
