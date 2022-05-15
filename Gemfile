@@ -5,6 +5,7 @@ ruby '3.0.1'
 
 gem "simple_form"
 gem 'devise'
+gem 'pagy'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4'
