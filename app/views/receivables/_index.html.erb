@@ -3,7 +3,7 @@
 <%== pagy_bootstrap_nav(@calendar[:year]) %>
 <%== pagy_bootstrap_nav(@calendar[:month]) %>
 
-<table>
+<table class="table table-striped">
   <thead>
   <tr>
     <th>Title</th>
@@ -19,7 +19,7 @@
     <tr>
       <td><%= receivable.title %></td>
       <td><%= receivable.description %></td>
-      <td><%= receivable.value %></td>
+      <td><%= number_to_currency(receivable.value, unit: "R$ ") %></td>
       <td><%= receivable.date %></td>
       <td><%= link_to 'Show', receivable %></td>
       <td><%= link_to 'Edit', edit_receivable_path(receivable) %></td>

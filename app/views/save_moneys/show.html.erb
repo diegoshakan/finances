@@ -1,12 +1,15 @@
 <p id="notice"><%= notice %></p>
 
+<div>
+  <h2> Nova Entrada: </h2>
+  <%= render "save_money_wallets/form" %>
 
+  <div class="col-2 mt-2">
+    <%= link_to "Voltar", save_moneys_path, class: "btn btn-primary text-white" %>
+  </div>
+</div>
 
-<h2>Reservas/Investimentos: </h2>
-<%= render "save_money_wallets/wallets" %>
-
-<h2> Nova Entrada: </h2>
-<%= render "save_money_wallets/form" %>
-
-<%= link_to 'Edit', edit_save_money_path(@save_money) %> |
-<%= link_to 'Back', save_moneys_path %>
+<div>
+  <h2>Reservas/Investimentos:</h2>
+  <%= render "save_money_wallets/wallets" %>
+</div>

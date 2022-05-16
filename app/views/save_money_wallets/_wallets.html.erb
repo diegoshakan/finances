@@ -1,24 +1,28 @@
-<% @save_money.wallets.each do |wallet| %>
-  <table class="table">
-    <tbody>
+<p id="notice"><%= notice %></p>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Value</th>
+    <th>Date</th>
+    <th colspan="2"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <% @save_money.wallets.each do |wallet| %>
       <tr>
-        <td>
-          <%= wallet.title %>
-        </td>
-        <td>
-          <%= wallet.description %>
-        </td>
-        <td>
-          <%= number_to_currency(wallet.value, unit: 'R$') %>
-        </td>
-        <td>
-          <%= wallet.date %>
-        </td>
-        <td>
-          <%= link_to "Editar", edit_save_money_save_money_wallet_path(@save_money, wallet) %>
-          <%= link_to "Deletar", [@save_money, wallet], method: :delete, data: {confirm: 'Tem certeza que deseja deletar esta carteira?'} %>
-        </td>
+        <td><%= wallet.title %></td>
+        <td><%= wallet.description %></td>
+        <td><%= number_to_currency(wallet.value, unit: "R$ ") %></td>
+        <td><%= wallet.date %></td>
+        <td><%= link_to "Editar", edit_save_money_save_money_wallet_path(@save_money, wallet) %></td>
+        <td><%= link_to "Deletar", [@save_money, wallet], method: :delete, data: {confirm: 'Tem certeza que deseja deletar esta carteira?'} %></td>
       </tr>
-    </tbody>
-  </table>
-<% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
