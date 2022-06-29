@@ -6,7 +6,7 @@ class PaymentsController < ApplicationController
     payments = Payment.where(user: current_user)
     @calendar, @pagy, @payments = pagy_calendar(payments,
                                                 year:  { size:  [1, 1, 1, 1], order: :desc },
-                                                month: { size:  [0, 12, 12, 0], order: :desc },
+                                                month: { size:  [0, 12, 12, 0], order: :desc, format: "%B" },
                                                 pagy:  { items: 10 },
                                                 )
   end
