@@ -6,7 +6,7 @@
   <div class="form-inputs">
     <%= f.input :title %>
     <%= f.input :description %>
-    <%= f.input :value %>
+    <%= f.input :value, value: number_with_precision(f.object.value, precision: 2) %>
     <%= f.input :date %>
   </div>
 
