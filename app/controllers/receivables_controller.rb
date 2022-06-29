@@ -4,7 +4,7 @@ class ReceivablesController < ApplicationController
   # GET /receivables or /receivables.json
   def index
     receivables = Receivable.where(user: current_user)
-    @calendar, @pagy, @receivables = pagy_calendar(receivables,
+    @calendar, @pagy, @receivables = pagy_calendar(receivables.reorder(date: :desc),
                                                 year:  { size:  [1, 1, 1, 1], order: :desc },
                                                 month: { size:  [0, 12, 12, 0], order: :desc, format: "%B" },
                                                 pagy:  { items: 10 },
