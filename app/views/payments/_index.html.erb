@@ -1,5 +1,10 @@
+<p id="notice"><%= notice %></p>
 
-<table>
+<%== pagy_bootstrap_nav(@calendar[:year]) %>
+<%== pagy_bootstrap_nav(@calendar[:month]) %>
+
+
+<table class="table table-striped">
   <thead>
   <tr>
     <th>Title</th>
@@ -15,7 +20,7 @@
     <tr>
       <td><%= payment.title %></td>
       <td><%= payment.description %></td>
-      <td><%= payment.value %></td>
+      <td><%= number_to_currency(payment.value, unit: "R$ ") %></td>
       <td><%= payment.date %></td>
       <td><%= link_to 'Show', payment %></td>
       <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
@@ -26,3 +31,5 @@
 </table>
 
 <br>
+
+<%== pagy_bootstrap_nav(@pagy) %>

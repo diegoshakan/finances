@@ -3,7 +3,12 @@ class PaymentsController < ApplicationController
 
   # GET /payments or /payments.json
   def index
-    @payments = Payment.where(user: current_user).group_by { |m| m.date.beginning_of_month }
+    payments = Payment.where(user: current_user)
+    @calendar, @pagy, @payments = pagy_calendar(payments,
+                                                year:  { size:  [1, 1, 1, 1], order: :desc },
+                                                month: { size:  [0, 12, 12, 0], order: :desc },
+                                                pagy:  { items: 10 },
+                                                )
   end
 
   # GET /payments/1 or /payments/1.json
@@ -66,5 +71,14 @@ class PaymentsController < ApplicationController
 
   def user_payment_params
     payment_params.merge({ user: current_user })
+  end
+
+  def pagy_calendar_period(collection)
+    to_time = collection.minmax.map(&:date)
+    to_time.map { |time| time.to_time }
+  end
+
+  def pagy_calendar_filter(collection, from, to)
+    collection.where(date: from.utc..to.utc)  # storage in UTC
   end
 end

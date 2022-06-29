@@ -1,8 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Save Moneys</h1>
+<div class="row">
+  <div class="col">
+    <h3> Dinheiro Guardado - <%= number_to_currency(current_user.total_balance_wallets, unit: "R$") %> </h3>
+    <%= link_to 'Guardar Dinheiro', new_save_money_path, class: "btn btn-primary btn-sm text-white" %>
+    <%= link_to 'Voltar', root_path, class: "btn btn-primary btn-sm text-white" %>
+  </div>
+</div>
+<hr />
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Title</th>
@@ -17,15 +24,15 @@
       <tr>
         <td> <%= save_money.title %> </td>
         <td> <%= save_money.description %> </td>
-        <td> <%= save_money.total_by_wallet %> </td>
-        <td><%= link_to 'Show', save_money %></td>
-        <td><%= link_to 'Edit', edit_save_money_path(save_money) %></td>
-        <td><%= link_to 'Destroy', save_money, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td> <%= number_to_currency(save_money.total_by_wallet, unit: "R$ ") %> </td>
+        <td>
+          <%= link_to 'Show', save_money %>
+          <%= link_to 'Edit', edit_save_money_path(save_money) %>
+          <%= link_to 'Destroy', save_money, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Save Money', new_save_money_path %>

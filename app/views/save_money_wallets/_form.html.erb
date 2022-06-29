@@ -1,15 +1,30 @@
 
-<%= simple_form_for([@save_money, @save_money.wallets.build]) do |f| %>
-  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :value %>
-    <%= f.input :date, as: :date %>
-  </div>
+<%= form_with(model: [@save_money, SaveMoneyWallet.new]) do |form| %>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="row">
+    <div class="col-2">
+      <%= form.label :title, style: "display: block" %>
+      <%= form.text_field :title, class: "form-select"  %>
+    </div>
+
+    <div class="col-2">
+      <%= form.label :description, style: "display: block" %>
+      <%= form.text_field :description, class: "form-select"  %>
+    </div>
+
+    <div class="col-2">
+      <%= form.label :value, style: "display: block" %>
+      <%= form.number_field :value, class: "form-control" %>
+    </div>
+
+    <div class="col-2">
+      <%= form.label :date, style: "display: block" %>
+      <%= form.date_field :date, class: "form-select"  %>
+    </div>
+
+    <div class="col-2 mt-4">
+      <%= form.submit class: "btn btn-success" %>
+    </div>
   </div>
 <% end %>
