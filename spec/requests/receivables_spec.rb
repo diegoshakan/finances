@@ -16,19 +16,44 @@ RSpec.describe "/receivables", type: :request do
   
   # Receivable. As you add validations to Receivable, be sure to
   # adjust the attributes here as well.
+  let(:user){ FactoryBot.create(:user, email: 'diego@example.com') }
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    FactoryBot.attributes_for(:receivable).merge!(user_id: user.id)
   }
+
 
   let(:invalid_attributes) {
     skip("Add a hash of attributes invalid for your model")
   }
 
   describe "GET /index" do
-    it "renders a successful response" do
-      Receivable.create! valid_attributes
-      get receivables_url
-      expect(response).to be_successful
+    before { sign_in user }
+
+    context "when Receivable is present" do
+      it "renders a successful response" do
+        Receivable.create! valid_attributes
+        get receivables_url
+        expect(response).to be_successful
+      end
+    end
+
+    context "when Receivable is empty" do
+      it "renders a successful response" do
+        get receivables_url
+        expect(response).to be_successful
+      end
+    end
+
+    context "when last Receivable has date lass than first Receivable" do
+      let(:date_one_day_before){ { date: "2021-08-07" }}
+
+      it "renders a successful response" do
+        Receivable.create! valid_attributes
+        Receivable.create! valid_attributes.merge!(date_one_day_before)
+
+        get receivables_url
+        expect(response).to be_successful
+      end
     end
   end
 
