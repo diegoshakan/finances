@@ -43,6 +43,18 @@ RSpec.describe "/receivables", type: :request do
         expect(response).to be_successful
       end
     end
+
+    context "when last Receivable has date lass than first Receivable" do
+      let(:date_one_day_before){ { date: "2021-08-07" }}
+
+      it "renders a successful response" do
+        Receivable.create! valid_attributes
+        Receivable.create! valid_attributes.merge!(date_one_day_before)
+
+        get receivables_url
+        expect(response).to be_successful
+      end
+    end
   end
 
   describe "GET /show" do
