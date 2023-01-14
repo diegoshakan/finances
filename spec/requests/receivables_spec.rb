@@ -36,6 +36,13 @@ RSpec.describe "/receivables", type: :request do
         expect(response).to be_successful
       end
     end
+
+    context "when Receivable is empty" do
+      it "renders a successful response" do
+        get receivables_url
+        expect(response).to be_successful
+      end
+    end
   end
 
   describe "GET /show" do
